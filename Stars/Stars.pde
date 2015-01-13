@@ -1,0 +1,64 @@
+int count = 500;
+PVector[] location = new PVector[count];
+PVector[] velocity = new PVector[count];
+PVector[] acceleration = new PVector[count];
+float[] dia = new float[count];
+PImage Star;
+
+void setup() {
+  size(1400, 800);
+  stroke(255);
+
+  //load stars
+  Star = loadImage("Star.png");
+  for (int s = 0; s<count; s++) {
+    dia[s] = random(5, 10);
+    acceleration[s] = new PVector(0, .2);
+    location[s] = new PVector(random(width), random(-height*3, -dia[s]/2));
+    velocity[s] = new PVector(0, random(1));
+  }
+}
+void draw() {
+  if (button) {
+    background(0);
+    x=width*5;
+    y=height*5;
+    
+  } else {
+    background(0);
+    fill(128);
+    //button
+    rect(x, y, w, h);
+    //background for words
+    quad(width/4, height/8*3, width/4*3, height/8*3, width/3*2, height/8*5, width/3, height/8*5);
+    fill(192);
+    quad(width/4+20, height/8*3+10, width/4*3-20, height/8*3+10, width/3*2-10, height/8*5-10, width/3+10, height/8*5-10);
+    rect(x+10, y+10, w-20, h-20);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    text("Alien Attackers", width/2, height/2);
+    text("Click here to Start", width/2,675);
+  }
+
+  //moves Stars
+  for (int s = 0; s<count; s++) {
+    velocity[s].add(acceleration[s]);
+    location[s].add(velocity[s]);
+    velocity[s].limit(3);
+    acceleration[s].x = random(-.1, .1);
+
+    //draws stars
+    pushMatrix();
+    translate(location[s].x, location[s].y);
+    image(Star, 0, 0, dia[s], dia[s]);
+    popMatrix();
+
+    //bottom to top
+    if (location[s].y-dia[s]/2 > height) {
+      location[s].set(random(width), random(-height, -dia[s]/2));
+      velocity[s].set(0, 2);
+    }
+  }
+}
+
