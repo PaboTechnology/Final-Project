@@ -4,6 +4,7 @@ PVector[] velocity = new PVector[count];
 PVector[] acceleration = new PVector[count];
 float[] dia = new float[count];
 PImage Star;
+PImage Arrows;
 
 void setup() {
   size(1400, 800);
@@ -23,7 +24,20 @@ void draw() {
     background(0);
     x=width*5;
     y=height*5;
+    //Load arrow key for player 1 controls
+    Arrows = loadImage("Arrowkeys.png");
+    image(Arrows,width/2,height/2,100,100);
     
+    fill(128);
+    //Player 1 background
+    rect(width/10,height/4,400,100);
+    //Player 2 background
+    rect(860,height/4,400,100);
+    fill(192);
+    //Player 1 top
+    rect(width/10+10,height/4+10,380,80);
+    //player 2 top
+    rect(870,height/4+10,380,80);
   } else {
     background(0);
     fill(128);
