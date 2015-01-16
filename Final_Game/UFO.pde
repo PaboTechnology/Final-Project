@@ -11,7 +11,7 @@ class UFO {
 
   UFO() {
     SpaceShip= loadImage("BlueSpaceShip.png");
-    loc=new PVector(0, 0);
+    loc=new PVector(width/2,height/2);
     vel= new PVector(0, 0);
     acc= new PVector(.2, .2);
     direction= new PVector(0, 1);
@@ -19,15 +19,14 @@ class UFO {
   }
 
   void display() {  
-    vel=PVector.fromAngle(theta);
-//    vel.x = direction.x * (speed * (forward + backward));
-//    vel.y = direction.y * (speed * (forward + backward));
+    vel=PVector.fromAngle(theta-HALF_PI);
     loc.add(vel);
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);
-    image(SpaceShip, loc.x, loc.y);
+    image(SpaceShip, 0,0);
     SpaceShip.resize(30, 35);
+    println(theta);
     popMatrix();
   }
 
