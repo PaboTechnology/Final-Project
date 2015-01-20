@@ -6,6 +6,7 @@ class TopDownRotater
   PVector velocity;
   float rotateSpeed;
   float speed;
+  
 }
  
 // Here we actually create the variable "car" of type TopDownRotater which we will access by name in the rest of the code.
@@ -41,6 +42,7 @@ void setup()
    
   // Load the image from the hard drive.
   car.image = loadImage("Green Spaceship.png");
+ 
    
   // Set the spawn position. We are using PVectors which are their own type that
   // has .x and .y floats stored inside.
@@ -67,7 +69,7 @@ void setup()
 void draw()
 {
   // Clear the screen
-  background(100);
+  background(0);
    
   // We have defined rotate2D below, it is the equivalent of PVectors rotate() method
   // we used before, but that method does not work in javascript so use this instead.
@@ -109,6 +111,8 @@ void draw()
    
   // Draw the car.image. Making sure to be at 0, 0 so translate and rotate apply correctly.
   image(car.image, 0, 0);
+  car.image.resize(50, 50);
+  image(car.image, 0,0);
    
   popMatrix(); // clear the transformations so they don't apply to whatever we draw next.
    
@@ -116,7 +120,7 @@ void draw()
   {
     fill(255, 0, 0);
     bullet.position.add(bullet.velocity);
-    ellipse(bullet.position.x, bullet.position.y, 40, 40);
+    ellipse(bullet.position.x, bullet.position.y, 10, 10);
   }
 }
  
