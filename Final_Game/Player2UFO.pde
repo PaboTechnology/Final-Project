@@ -11,6 +11,11 @@ class P2UFO {
   }
 
   void display() {
+    image(SpaceShip, x, y);
+    SpaceShip.resize(30, 35);
+  }
+
+  void move() {
     float targetX = mouseX;
     dx = targetX - x;
     if (abs(dx) > 1) {
@@ -23,11 +28,6 @@ class P2UFO {
     }
     x+= dx*easing;
     y+= dy*easing;
-    image(SpaceShip, x, y);
-    SpaceShip.resize(30, 35);
-  }
-
-  void move() {
   }
 }
 

@@ -5,17 +5,17 @@ class UFO {
   PVector acc;
   float theta;
   PVector direction;
-  float forward;
-  float backward;
   int speed;
+  PVector bullet;
 
   UFO() {
     SpaceShip= loadImage("BlueSpaceShip.png");
-    loc=new PVector(width/2,height/2);
+    loc=new PVector(width/2, height/2);
     vel= new PVector(0, 0);
     acc= new PVector(.2, .2);
     direction= new PVector(0, 1);
     speed= 3;
+    bullet=new PVector(0, 0);
   }
 
   void display() {  
@@ -24,7 +24,7 @@ class UFO {
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);
-    image(SpaceShip, 0,0);
+    image(SpaceShip, 0, 0);
     SpaceShip.resize(30, 35);
     println(theta);
     popMatrix();
@@ -40,10 +40,11 @@ class UFO {
     }
     if (keyPressed) {
       if (keyCode==UP) {
-        forward=1;
+        loc.add(vel);
       } else if (keyCode==DOWN) {
-        backward=-1;
+        loc.sub(vel);
       }
     }
   }
 }
+
