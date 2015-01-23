@@ -11,7 +11,7 @@ class Bullet {
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);
-    println(theta);
+
     fill(125);
     ellipse(loc.x, loc.y,10,10);
     popMatrix();

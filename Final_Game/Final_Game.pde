@@ -10,20 +10,17 @@ void setup() {
   imageMode(CENTER);
   UFO=new P2UFO();
   frameRate(40);
+    for (int i=0; i<5; i++) {
+    bull.add(new Bullet());
+  }
 }
 
 void draw() {
   wall.display();
-  for (int i=0; i<5; i++) {
-    bull.add(new Bullet());
-  }
   for (int i=0; i<bull.size (); i++) {
     Bullet b=bull.get(i);
     b.display(); 
     b.move();
-    //    if (bull.loc.x) {
-    //      ;
-    //    }
   }
   ufo.display();
   ufo.move();
