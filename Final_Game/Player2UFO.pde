@@ -5,17 +5,23 @@ class P2UFO {
   float dy;
   float dx;
   float easing;
+  float r;
     P2UFO() {
     SpaceShip= loadImage("GreenSpaceShip.png");
-    easing=.005;
+    easing=.01;
   }
 
   void display() {
-    image(SpaceShip, x, y);
-    SpaceShip.resize(30, 35);
+    pushMatrix();
+    translate(x,y);
+    rotate(r-300);
+    image(SpaceShip, 0, 0);
+    SpaceShip.resize(50, 57);
+    popMatrix();
   }
 
   void move() {
+    r= atan2(mouseY-y, mouseX-x);
     float targetX = mouseX;
     dx = targetX - x;
     if (abs(dx) > 1) {

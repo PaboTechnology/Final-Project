@@ -20,12 +20,14 @@ class UFO {
 
   void display() {  
     vel=PVector.fromAngle(theta-HALF_PI);
-    loc.add(vel);
+    for (int i=0; i<4; i++) {
+      loc.add(vel);
+    }
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);
     image(SpaceShip, 0, 0);
-    SpaceShip.resize(30, 35);
+    SpaceShip.resize(50, 57);
     println(theta);
     popMatrix();
   }
@@ -42,7 +44,9 @@ class UFO {
       if (keyCode==UP) {
         loc.add(vel);
       } else if (keyCode==DOWN) {
-        loc.sub(vel);
+        for (int i=0; i<4; i++) {
+          loc.sub(vel);
+        }
       }
     }
   }
