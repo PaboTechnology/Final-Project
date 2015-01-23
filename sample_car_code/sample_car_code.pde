@@ -1,4 +1,4 @@
-class TopDownRotater
+   class TopDownRotater
 {
   PImage image;
   PVector position;
@@ -164,7 +164,7 @@ void keyReleased()
 {
     // Reset our key states to 0 when released.
     if (keyCode == RIGHT)
-    {
+    {  
       right = 0;
     }
     if (keyCode == LEFT)
@@ -182,7 +182,7 @@ void keyReleased()
     if (key  == ' ') 
     {
       bullet = new Bullet();
-      bullet.speed = car.speed + 2;
+      bullet.speed  = car.speed + 2;
       bullet.direction = new PVector(car.direction.x, car.direction.y);
       bullet.position = new PVector(car.position.x, car.position.y);
       bullet.velocity = new PVector(bullet.direction.x * bullet.speed, bullet.direction.y * bullet.speed);
