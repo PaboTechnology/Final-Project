@@ -2,7 +2,7 @@ PImage img;
 
 void setup() {
   size(200,200);
-  img = loadImage("sunflower.jpg");
+  img = loadImage("Chrysanthemum.jpg");
 }
 
 void draw() {
