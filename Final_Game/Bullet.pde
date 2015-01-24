@@ -8,18 +8,12 @@ class Bullet {
   }
 
   void display() {
-    pushMatrix();
-    translate(loc.x, loc.y);
-    rotate(theta);
-
-    fill(125);
-    ellipse(loc.x, loc.y,10,10);
-    popMatrix();
+    fill(255,0,0);
+    ellipse(loc.x, loc.y,20,20);
   }
 
   void move() {
-    vel=PVector.fromAngle(theta-HALF_PI);
-    loc.add(vel);
+    loc.add(ufo.vel.x, ufo.vel.y,0);
   }
 }
 
