@@ -1,6 +1,10 @@
 class Wall {
   color c;
   color wall;
+  color r;
+  color l;
+  color t;
+  color b;
   PImage map;
   PVector mouse;
   Wall() {
@@ -14,6 +18,10 @@ class Wall {
     map.resize(width, height);
     background(map);
     wall = (255);
+    l= get(int(ufo.el.x-25),int(ufo.el.y));
+    r= get(int(ufo.el.x+25),int(ufo.el.y));
+    t= get(int(ufo.el.x),int(ufo.el.y-25));
+    b= get(int(ufo.el.x),int(ufo.el.y+25));
   }
 }
 

@@ -2,20 +2,13 @@ class UFO {
   PImage SpaceShip;
   PVector loc;
   PVector vel;
-  PVector acc;
   float theta;
-  PVector direction;
-  int speed;
-  PVector bullet;
   PVector el;
 
   UFO() {
     SpaceShip= loadImage("BlueSpaceShip.png");
     loc=new PVector(width/2, height/2);
     vel= new PVector(0, 0);
-    acc= new PVector(.2, .2);
-    direction= new PVector(0, 1);
-    speed= 3;
     el= new PVector(-.3, 5);
   }
 
