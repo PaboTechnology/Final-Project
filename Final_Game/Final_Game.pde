@@ -15,6 +15,7 @@ void setup() {
 }
 
 void draw() {  
+ 
   wall.display();
   ufo.display();
   ufo.move();
@@ -28,5 +29,6 @@ void draw() {
   //      b.move();
   //    }
   //  }
+//   println("our colors are: \nTop: " + wall.t + "\nBottom: " + wall.b + "\nLeft: " + wall.l + "\nRight: " + wall.r + "\nWall: " + wall.wall);
 }
 

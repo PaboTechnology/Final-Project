@@ -5,6 +5,7 @@ class Wall {
   color l;
   color t;
   color b;
+  color m;
   PImage map;
   PVector mouse;
   Wall() {
@@ -17,11 +18,13 @@ class Wall {
     image(map, 0, 0);
     map.resize(width, height);
     background(map);
-    wall = (255);
-    l= get(int(ufo.el.x-25),int(ufo.el.y));
-    r= get(int(ufo.el.x+25),int(ufo.el.y));
-    t= get(int(ufo.el.x),int(ufo.el.y-25));
-    b= get(int(ufo.el.x),int(ufo.el.y+25));
+    wall = (-1);
+    l= map.get(int(ufo.loc.x-30), int(ufo.loc.y));
+    r= map.get(int(ufo.loc.x+25), int(ufo.loc.y));
+    t= map.get(int(ufo.loc.x), int(ufo.loc.y-25));
+    b= map.get(int(ufo.loc.x), int(ufo.loc.y+25));
+    m = map.get(mouseX, mouseY);
+//    println("mouse color: "  + m);
   }
 }
 
