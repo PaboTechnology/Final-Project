@@ -1,6 +1,5 @@
 class StartScreen {
   int count = 500;
-  int s;
   PVector[] location = new PVector[count];
   PVector[] velocity = new PVector[count];
   PVector[] acceleration = new PVector[count];
@@ -9,14 +8,15 @@ class StartScreen {
 
   StartScreen() {
     Star = loadImage("Star.png");
-  }
-  void display() {
+
     for (int s = 0; s<count; s++) {
       dia[s] = random(5, 10);
-      acceleration[s] = new PVector(0, .2);
-      location[s] = new PVector(random(width), random(-height*3, -dia[s]/2));
+      acceleration[s] = new PVector(0,0);
+      location[s] = new PVector(random(0, 1400), random(-height*10, -dia[s]/2));
       velocity[s] = new PVector(0, random(0));
     }
+  }
+  void display() {
   }
   void move() {
     for (int s = 0; s<count; s++) {
@@ -24,10 +24,11 @@ class StartScreen {
       location[s].add(velocity[s]);
       velocity[s].limit(3);
       acceleration[s].x = random(0);
-    
+      acceleration[s].y = random(.2);
+
       pushMatrix();
       translate(location[s].x, location[s].y);
-      image(Star, 0, 0, dia[s], dia[s]);
+      image(Star, location[s].x, location[s].y, dia[s], dia[s]);
       popMatrix();
 
       if (location[s].y-dia[s]/2 > height) {
@@ -37,3 +38,4 @@ class StartScreen {
     }
   }
 }
+
