@@ -21,10 +21,30 @@ class UFO {
     translate(loc.x, loc.y);
     ellipse(el.x, el.y, 50, 50);
     rotate(theta);
-    fill(255, 0, 0);
+    fill(255,0,0);
     image(SpaceShip, 0, 0);
     SpaceShip.resize(50, 57);
     //    println(theta);
+    if (wall.l == wall.wall) {
+    println("touching wall!!") ;
+  } else {
+    println("not");
+  }
+  if (wall.r == wall.wall) {
+    println("touching wall!!") ;
+  } else {
+    println("not");
+  }
+  if (wall.t == wall.wall) {
+    println("touching wall!!") ;
+  } else {
+    println("not");
+  }
+  if (wall.b == wall.wall) {
+    println("touching wall!!") ;
+  } else {
+    println("not");
+  }
     popMatrix();
   }
 

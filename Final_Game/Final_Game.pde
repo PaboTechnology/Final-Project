@@ -21,29 +21,6 @@ void draw() {
   UFO.display();
   UFO.move();
   //first ufo Hitting wall
-  pushMatrix();
-  translate(ufo.loc.x, ufo.loc.y);
-  if (wall.l == wall.wall) {
-    println("touching wall!!") ;
-  } else {
-    println("not");
-  }
-  if (wall.c == wall.wall) {
-    println("touching wall!!") ;
-  } else {
-    println("not");
-  }
-  if (wall.c == wall.wall) {
-    println("touching wall!!") ;
-  } else {
-    println("not");
-  }
-  if (wall.c == wall.wall) {
-    println("touching wall!!") ;
-  } else {
-    println("not");
-  }
-  popMatrix();
   //  for (int i=0; i<bull.size (); i++) {
   //    if (key=='m') {
   //      Bullet b=bull.get(i);
