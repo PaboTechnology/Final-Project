@@ -4,66 +4,42 @@ class UFO {
   PVector vel;
   float theta;
   PVector el;
-  boolean movex;
-  boolean movey;
 
   UFO() {
     SpaceShip= loadImage("BlueSpaceShip.png");
     loc=new PVector(width/2, height/2);
     vel= new PVector(0, 0);
     el= new PVector(-.3, 5);
-    movex=true;
-    movey=true;
   }
 
   void display() {
-    if (movex) {
-      vel=PVector.fromAngle(theta-HALF_PI);
-      for (int i=0; i<3; i++) {
-        loc.x+=vel.x;
-      }
+    el.set(-.3, 5);
+    vel=PVector.fromAngle(theta-HALF_PI);
+    for (int i=0; i<3; i++) {
+      loc.add(vel);
     }
-    if (movey) {
-      for (int i=0; i<3; i++) {
-        loc.y+=vel.y;
-      }
-    }
+
     pushMatrix();
     translate(loc.x, loc.y);
     ellipse(el.x, el.y, 50, 50);
     rotate(theta);
-    fill(255, 0, 0);
+    fill(0);
     image(SpaceShip, 0, 0);
     SpaceShip.resize(50, 57);
+    popMatrix();
     //    println(theta);
     if (wall.l == wall.wall) {
-      movex=!movex;
-    } else {
-      movex=movex;
-      //      println("not");
+      loc.x+=5;
     }
     if (wall.r == wall.wall) {
-      movex=!movex;
-      //      println("touching wall!!") ;
-    } else {
-      movex=movex;
-      //      println("not");
+      loc.x-=5;
     }
     if (wall.t == wall.wall) {
-      //      println("touching wall!!") ;
-      movey=!movey;
-    } else {
-      movex=movex;
-      //      println("not");
+      loc.y+=5;
     }
     if (wall.b == wall.wall) {
-      //      println("touching wall!!") ;
-      movey=!movey;
-    } else {
-      movex=movex;
-      //      println("not");
+      loc.y-=5;
     }
-    popMatrix();
   }
 
   void move() {

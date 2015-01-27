@@ -6,16 +6,18 @@ class P2UFO {
   float dx;
   float easing;
   float r;
-    P2UFO() {
+  PVector pab;
+  P2UFO() {
     SpaceShip= loadImage("GreenSpaceShip.png");
     easing=.005;
+    pab=new PVector(-.3, 5);
   }
 
   void display() {
     pushMatrix();
-    translate(x,y);
+    translate(x, y);
+    ellipse(pab.x, pab.y, 50, 50);
     rotate(r-300);
-    ellipse(-.3,5,50,50);
     image(SpaceShip, 0, 0);
     SpaceShip.resize(50, 57);
     popMatrix();
@@ -35,6 +37,18 @@ class P2UFO {
     }
     x+= dx*easing;
     y+= dy*easing;
+    if (wall.l2 == wall.wall) {
+      x+=10;
+    }
+    if (wall.r2 == wall.wall) {
+      x-=10;
+    }
+    if (wall.t2 == wall.wall) {
+      y+=10;
+    }
+    if (wall.b2 == wall.wall) {
+      y-=10;
+    }
   }
 }
 
