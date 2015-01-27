@@ -108,6 +108,20 @@ class ControlScreen {
       fill(0);
       textSize(40);
       text("Player 2 Controls", width/4*3, height/4);
+//      if (button2) {
+//        b2x=width*2;
+//        b2y=height*2;
+//        fill(128);
+//        rect(width/2, height/16*13, 400, 100);
+//        fill(192);
+//        rect(width/2, height/16*13, 380, 80);
+//        fill(0);
+//        textAlign(CENTER);
+//        textSize(70);
+//        text("Ready?", width/2, 675);
+//      } else {
+//        background(255);
+//      }
     } else {
       //button, click to start background
       fill(128);
