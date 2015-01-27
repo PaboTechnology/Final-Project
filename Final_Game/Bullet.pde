@@ -1,21 +1,18 @@
 class Bullet {
   PVector vel;
   PVector loc;
-  float speed;
-  float rotation;
-  Bullet() {
-    loc=new PVector(0, 0);
+  Bullet(UFO other) {
+    loc=new PVector(other.loc.x, other.loc.y);
     vel=new PVector(0, 0);
-    speed=20;
-    rotation = atan2(mouseY - UFO.y, mouseX - UFO.x) / PI * 180;
   }
 
-  void display(float uf1, float uf2, float uf3) {
+  void display() {
     fill(255, 0, 0);
-    loc.x=uf1+cos(rotation/180*PI)*speed;
-    loc.y=uf2+sin(rotation*PI)*speed;
-    ellipse(loc.x, loc.y, 50, 50);
-    println("shoot time = " + owen.shootTime + " /nBall location = " + loc);
+    ellipse(loc.x, loc.y, 20, 20);
+  }
+
+  void move() {
+    loc.add(ufo.vel.x, ufo.vel.y, 0);
   }
 }
 

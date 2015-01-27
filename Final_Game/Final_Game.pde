@@ -2,10 +2,10 @@
 UFO ufo;
 P2UFO UFO;
 Wall wall;
-move owen;
+//move owen;
 ArrayList<Bullet> bull;
-float lifespan;
-float life;
+int shootTime=20;
+
 void setup() {
   wall=new Wall();
   size(800, 800);
@@ -13,25 +13,28 @@ void setup() {
   imageMode(CENTER);
   UFO=new P2UFO();
   bull=new ArrayList<Bullet>();
-  owen = new move();
+  //  owen = new move();
 }
+
 void draw() {
-  owen.update();
+  //  owen.update();
   wall.display();
   ufo.display();
   ufo.move();
   UFO.display();
   UFO.move();
-  //first ufo Hitting wall
-  for (int i= bull.size ()-1; i >= 0; i--) {
-    println(bull.size());
+  // first ufo Hitting wall
+  for (int i=0; i<bull.size (); i++) {
     Bullet b=bull.get(i);
-    b.display(UFO.x, UFO.y, UFO.r);
-    lifespan++;    
-    if (lifespan>=360) {
-      bull.remove(i);
-      lifespan=0;
-    }
+    b.display(); 
+    b.move();
+  }
+}
+
+
+void keyPressed() {
+  if (key=='m') {
+    bull.add(new Bullet(ufo));
   }
 }
 
