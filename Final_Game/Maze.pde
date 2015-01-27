@@ -9,6 +9,10 @@ class Wall {
   color l2;
   color t2;
   color b2;
+  color r3;
+  color l3;
+  color t3;
+  color b3;
   PImage map;
   PVector mouse;
   Wall() {
@@ -30,7 +34,14 @@ class Wall {
     r2 =map.get(int(UFO.x+35), int(UFO.y));
     t2= map.get(int(UFO.x), int(UFO.y-35));
     b2= map.get(int(UFO.x), int(UFO.y+35));
-    //    println("mouse color: "  + m);
+  }
+  void ball(Bullet bull) {
+    l3= map.get(int(bull.loc.x-10), int(bull.loc.y));
+    r3 =map.get(int(bull.loc.x+10), int(bull.loc.y));
+    t3= map.get(int(bull.loc.x), int(bull.loc.y-10));
+    b3= map.get(int(bull.loc.x), int(bull.loc.y+10));
+    println("left color: " + l3 +" right color: " + r3 +" top color: " +t3 +" Bottom color: " +b3);
+    println(wall);
   }
 }
 

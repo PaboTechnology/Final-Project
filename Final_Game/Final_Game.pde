@@ -5,7 +5,6 @@ Wall wall;
 //move owen;
 ArrayList<Bullet> bull;
 int shootTime=20;
-
 void setup() {
   wall=new Wall();
   size(800, 800);
@@ -15,7 +14,6 @@ void setup() {
   bull=new ArrayList<Bullet>();
   //  owen = new move();
 }
-
 void draw() {
   //  owen.update();
   wall.display();
@@ -25,12 +23,14 @@ void draw() {
   UFO.move();
   // first ufo Hitting wall
   for (int i=0; i<bull.size (); i++) {
+
     Bullet b=bull.get(i);
     b.display(); 
-    b.move();
+    b.move(b);
+    wall.ball(b);
+    println(b.vel);
   }
 }
-
 
 void keyPressed() {
   if (key=='m') {

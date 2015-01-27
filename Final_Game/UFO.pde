@@ -55,10 +55,10 @@ class UFO {
         for (int i=0; i<3; i++) {
           loc.add(vel);
         }
-      }
-    } else if (keyCode==DOWN) {
-      for (int i=0; i<3; i++) {
-        loc.sub(vel);
+      } else if (keyCode==DOWN) {
+        for (int i=0; i<3; i++) {
+          loc.sub(vel);
+        }
       }
     }
   }
