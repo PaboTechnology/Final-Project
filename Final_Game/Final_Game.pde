@@ -16,6 +16,7 @@ void setup() {
   owen = new move();
 }
 void draw() {
+  println("shoot time = " + owen.shootTime);
   owen.update();
   wall.display();
   ufo.display();
@@ -29,6 +30,7 @@ void draw() {
     lifespan++;
     if (lifespan>=360) {
       bull.remove(i);
+      lifespan=0;
     }
   }
 }

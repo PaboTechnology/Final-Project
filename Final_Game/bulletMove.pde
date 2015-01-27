@@ -15,7 +15,7 @@ class move{
         }
       }
     }
-    if (shoot=false) {
+    if (shoot==false) {
       shootTime++;
     }
     if (shootTime==20) {
