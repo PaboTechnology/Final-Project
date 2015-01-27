@@ -16,7 +16,6 @@ void setup() {
   owen = new move();
 }
 void draw() {
-  println("shoot time = " + owen.shootTime);
   owen.update();
   wall.display();
   ufo.display();
@@ -25,9 +24,10 @@ void draw() {
   UFO.move();
   //first ufo Hitting wall
   for (int i= bull.size ()-1; i >= 0; i--) {
+    println(bull.size());
     Bullet b=bull.get(i);
     b.display(UFO.x, UFO.y, UFO.r);
-    lifespan++;
+    lifespan++;    
     if (lifespan>=360) {
       bull.remove(i);
       lifespan=0;
