@@ -21,9 +21,9 @@ class UFO {
 
     pushMatrix();
     translate(loc.x, loc.y);
+    fill(0);
     ellipse(el.x, el.y, 50, 50);
     rotate(theta);
-    fill(0);
     image(SpaceShip, 0, 0);
     SpaceShip.resize(50, 57);
     popMatrix();
