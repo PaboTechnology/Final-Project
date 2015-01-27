@@ -12,7 +12,6 @@ void setup() {
 
 void draw() {
   background(0);
-  startscreen2.display();
   startscreen2.move();
   controlscreen2.display();
 }

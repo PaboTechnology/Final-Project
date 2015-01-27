@@ -4,14 +4,20 @@ class ControlScreen {
   PImage ArrowUP;
   PImage ArrowLEFT;
   PImage ArrowRIGHT;
-  PImage MKeyGREEN;
   PImage MKey;
+  PImage MKeyGREEN;
   PImage Mouse;
   PImage MouseGREEN;
-  int x = 700;
-  int y = 650;
-  int w = 666;
-  int h = 100;
+  int ArrowSZ;
+  int MouseSZx;
+  int MouseSZy;
+  int MkeySZ;
+  int a1;
+  int a2;
+  int x;
+  int y;
+  int w;
+  int h;
 
 
   ControlScreen() {
@@ -19,58 +25,70 @@ class ControlScreen {
     rectMode(CENTER);
     textAlign(CENTER);
     Arrows = loadImage("Arrowkeys.png");
-    Mouse = loadImage("Mouse.png");
-    MouseGREEN = loadImage("MouseGREEN.png");
-    MKey = loadImage("MKey.png");
-    MKeyGREEN = loadImage("MKeyGreen.png");
     ArrowDOWN = loadImage("ArrowkeysDOWN.png");
     ArrowUP = loadImage("ArrowkeysUP.png");
     ArrowLEFT = loadImage("ArrowkeysLEFT.png");
     ArrowRIGHT = loadImage("ArrowkeysRIGHT.png");
+    MKey = loadImage("MKey.png");
+    MKeyGREEN = loadImage("MKeyGreen.png");
+    Mouse = loadImage("Mouse.png");
+    MouseGREEN = loadImage("MouseGREEN.png");
+    ArrowSZ = 275;
+    MouseSZx = 150;
+    MouseSZy = 250;
+    MkeySZ = 65;
+    a1 = 10;
+    a2 = 20;
+    x = 700;
+    y = 650;
+    w = 666;
+    h = 100;
   }
 
   void display() {
-    //If button is pressed...
+    //If button is true(pressed)...
     if (button) {
       //make button go away by setting new location off screen
       bx=width*2;
       by=height*2;
-      
+
       //load arrow key image
-      image(Arrows, width/8, height/3, 275, 275);
-      
+      image(Arrows, width/8, height/3, ArrowSZ, ArrowSZ);
+
       //if down key is pressed, down arrow turns and stays green
       if (keyCode == DOWN) {
-        image(ArrowDOWN, width/8, height/3, 275, 275);
+        image(ArrowDOWN, width/8, height/3, ArrowSZ, ArrowSZ);
       }
-      
+
       //if up key is pressed, up arrow turns and stays green
       if (keyCode == UP) {
-        image(ArrowUP, width/8, height/3, 275, 275);
+        image(ArrowUP, width/8, height/3, ArrowSZ, ArrowSZ);
       }
-      
+
       //if left key is pressed, left arrow turns and stays green
       if (keyCode == LEFT) {
-        image(ArrowLEFT, width/8, height/3, 275, 275);
+        image(ArrowLEFT, width/8, height/3, ArrowSZ, ArrowSZ);
       }
-      
+
       //if down key is pressed, down arrow turns and stays green
       if (keyCode == RIGHT) {
-        image(ArrowRIGHT, width/8, height/3, 275, 275);
+        image(ArrowRIGHT, width/8, height/3, ArrowSZ, ArrowSZ);
       }
-      
+
       //load image of mouse
-      image(Mouse, width/6*4+40, height/3, 150, 250);
-      
-      //if left-click/right-click is pressed, mouse keys turn and green
+      image(Mouse, width/10*7, height/3, MouseSZx, MouseSZy);
+
+      //if left-click/right-click is pressed, mouse keys turn green
       if (mousePressed == true) {
-        image(MouseGREEN, width/6*4+40, height/3, 150, 250);
+        image(MouseGREEN, width/10*7, height/3, MouseSZx, MouseSZy);
       }
-      
+
       //load m key
-      image(MKey, width/4, height/3+57, 65, 65);
+      image(MKey, width/4, height/5*2, MkeySZ, MkeySZ);
+
+      //if m or M is pressed, m key turns green
       if (key == 'm' || key =='M') {
-        image(MKeyGREEN, width/4, height/3+57, 65, 65);
+        image(MKeyGREEN, width/4, height/5*2, MkeySZ, MkeySZ);
       }
 
       //Player 1 controls text
@@ -91,19 +109,25 @@ class ControlScreen {
       textSize(40);
       text("Player 2 Controls", width/4*3, height/4);
     } else {
+      //button, click to start background
       fill(128);
-      //button
       rect(x, y, w, h);
-      //background for words
+      fill(192);
+      rect(x, y, w-a2, h-a2);
+      fill(0);
+      textAlign(CENTER);
+      textSize(70);
+      text("Click here to Start", width/2, 675);
+
+      //background for alien attackers
+      fill(128);
       quad(width/4, height/8*3, width/4*3, height/8*3, width/3*2, height/8*5, width/3, height/8*5);
       fill(192);
-      quad(width/4+20, height/8*3+10, width/4*3-20, height/8*3+10, width/3*2-10, height/8*5-10, width/3+10, height/8*5-10);
-      rect(x, y, w-20, h-20);
+      quad(width/4+a2, height/8*3+a1, width/4*3-a1, height/8*3+a1, width/3*2-a1, height/8*5-a1, width/3+a1, height/8*5-a1);
       fill(0);
       textAlign(CENTER);
       textSize(70);
       text("Alien Attackers", width/2, height/2);
-      text("Click here to Start", width/2, 675);
     }
   }
 }
