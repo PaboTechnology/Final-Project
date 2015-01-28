@@ -2,6 +2,7 @@ class Bullet {
   PVector vel;
   PVector loc;
   int sz;
+  int totaltime;
 
   Bullet(UFO other) {
     loc=new PVector(other.loc.x, other.loc.y);
@@ -16,12 +17,19 @@ class Bullet {
   }
 
   void move() {
+    totaltime++;
     loc.add(vel);
   }
 
   void kill(P2UFO other) {
-    if (loc.dist(other.loc)<sz/2+other.sz/2){
+    if (loc.dist(other.loc)<sz/2+other.sz/2) {
       println("blue wins!!");
+    }
+  }
+
+  void life(Bullet b) {
+    if (b.totaltime>=400) {
+      bull.remove(b);
     }
   }
 }

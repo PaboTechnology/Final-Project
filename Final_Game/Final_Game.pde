@@ -26,6 +26,8 @@ void draw() {
     b.move();
     wall.ball(b);
     b.kill(UFO);
+    b.life(b);
+    println(b.totaltime);
     //    println(b.vel);
     if (wall.l3 == wall.wall) {
       b.vel.x*=-1;
@@ -45,10 +47,11 @@ void draw() {
   }
   for (int i=0; i<p2bull.size (); i++) {
     P2Bullet b= p2bull.get(i);
-    b.display(); 
+    b.display();
     b.move();
     wall.ball2(b);
     b.kill(ufo);
+    b.life(b);
     //    println(b.vel);
     if (wall.l4 == wall.wall) {
       b.vel.x*=-1;
