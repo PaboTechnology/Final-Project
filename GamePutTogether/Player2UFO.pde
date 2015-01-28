@@ -8,7 +8,7 @@ class P2UFO {
   float r;
   PVector pab;
   P2UFO() {
-    SpaceShip= loadImage("GreenSpaceShip.png");
+    SpaceShip= loadImage("Green Spaceshipp.png");
     easing=.005;
     pab=new PVector(-.3, 5);
   }
