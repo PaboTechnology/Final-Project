@@ -4,7 +4,7 @@ P2UFO UFO;
 Wall wall;
 StartScreen startscreen2;
 ControlScreen controlscreen2;
-//move owen;
+//Declare variables;
 ArrayList<Bullet> bull;
 ArrayList<P2Bullet> p2bull;
 int shootTime=20;
@@ -13,6 +13,7 @@ PImage gbomb;
 PImage bbomb;
 
 void setup() {
+  // Initialize Classes and Variables
   startscreen2 = new StartScreen();
   controlscreen2 = new ControlScreen();
   gbomb= loadImage("GreenNuke.png");
@@ -29,31 +30,37 @@ void setup() {
 }
 
 void draw() {
+// make main game start at titlescreen
   if (main==true) {
     background(0);
     startscreen2.move();
     controlscreen2.display();
-  } else {
+  }
+//  make game go to play
+  else {
     background(0);
+//    use classes for game
     wall.display();
     ufo.display();
     ufo.move();
     UFO.display();
     UFO.move();
+//    Arraylist of blue ufo bullets
     for (int i=0; i<bull.size (); i++) {
       Bullet b=bull.get(i);
       b.display(); 
       b.move();
       wall.ball(b);
       b.kill(UFO);
+//    if bullet hits then game over
       if (b.bwin) {
         image(bbomb,b.loc.x-300, b.loc.y-300);
         text("GAME OVER, BLUE WINS!", width/2, height/2);
         noLoop();
       }
+//      lifetime of bullet
       b.life(b);
-      println(b.totaltime);
-      //    println(b.vel);
+//      make bullet bounce off walls
       if (wall.l3 == wall.wall) {
         b.vel.x*=-1;
       }
@@ -70,19 +77,22 @@ void draw() {
         b.vel.y*=-1;
       }
     }
+//    arraylist of green ufo bullets
     for (int i=0; i<p2bull.size (); i++) {
       P2Bullet b= p2bull.get(i);
       b.display();
       b.move();
       wall.ball2(b);
       b.kill(ufo);
+//    if bullet hits then game over
       if (b.gwin) {
         image(gbomb, b.loc.x-300, b.loc.y-300);
         text("GAME OVER, GREEN WINS!", width/2, height/2);
         noLoop();
       }
+//      lifetime of bullet
       b.life(b);
-      //    println(b.vel);
+//      make bullet bounce off walls
       if (wall.l4 == wall.wall) {
         b.vel.x*=-1;
       }
@@ -99,11 +109,11 @@ void draw() {
         b.vel.y*=-1;
       }
     }
-    // first ufo Hitting wall
   }
 }
 
 void keyPressed() {
+//  function to shoot blue bullet
   if (bull.size()<=2) {
     if (key=='m') {
       bull.add(new Bullet(ufo));
@@ -111,6 +121,7 @@ void keyPressed() {
   }
 }
 void mousePressed() {
+//  function to change title screens and shoot green bullets
   if (p2bull.size()<=2) {
     p2bull.add(new P2Bullet(UFO));
   }
