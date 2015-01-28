@@ -28,8 +28,8 @@ class UFO {
     //  with vel and ufo stays constant
     pushMatrix();
     translate(loc.x, loc.y);
-    fill(0, 0, 255);
 //    ellipse used for reference since it doesnt rotate
+    fill(0);
     ellipse(el.x, el.y, sz, sz);
     rotate(theta);
     image(SpaceShip, -25, -27);

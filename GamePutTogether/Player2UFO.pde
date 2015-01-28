@@ -24,7 +24,7 @@ class P2UFO {
     //    and rotate pointing towards the mouse
     pushMatrix();
     translate(loc.x, loc.y);
-    fill(0, 255, 0);
+    fill(0);
     ellipse(pab.x, pab.y, sz, sz);
     rotate(r-300);
     image(SpaceShip, -25, -23);
