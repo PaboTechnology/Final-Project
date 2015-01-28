@@ -1,17 +1,17 @@
-class Bullet {
+class P2Bullet {
   PVector vel;
   PVector loc;
   int sz;
 
-  Bullet(UFO other) {
+  P2Bullet(P2UFO other) {
     loc=new PVector(other.loc.x, other.loc.y);
     vel=new PVector(other.vel.x, other.vel.y);
-    vel.mult(5);
+    vel.mult(3);
     sz = 10;
   }
 
   void display() {
-    fill(0, 0, 200);
+    fill(0, 122, 0);
     ellipse(loc.x, loc.y, sz, sz);
   }
 
@@ -19,9 +19,9 @@ class Bullet {
     loc.add(vel);
   }
 
-  void kill(P2UFO other) {
-    if (loc.dist(other.loc)<sz/2+other.sz/2){
-      println("blue wins!!");
+  void kill(UFO other) {
+    if (loc.dist(other.loc)<sz/2+other.sz/2) {
+      println("green wins!!");
     }
   }
 }

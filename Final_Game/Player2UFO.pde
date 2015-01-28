@@ -1,53 +1,58 @@
 class P2UFO {
   PImage SpaceShip;
-  float x;
-  float y;
+  PVector loc;
   float dy;
   float dx;
+  PVector vel;
   float easing;
   float r;
   PVector pab;
+  int sz;
   P2UFO() {
+    loc=new PVector(width/3, 60);
     SpaceShip= loadImage("GreenSpaceShip.png");
     easing=.005;
     pab=new PVector(-.3, 5);
+    vel=new PVector(dx*easing, dy*easing);
+    sz = 50;
   }
 
   void display() {
     pushMatrix();
-    translate(x, y);
-    ellipse(pab.x, pab.y, 50, 50);
+    translate(loc.x, loc.y);
+    ellipse(pab.x, pab.y, sz, sz);
     rotate(r-300);
     image(SpaceShip, 0, 0);
-    SpaceShip.resize(50, 57);
+    SpaceShip.resize(sz, 57);
     popMatrix();
   }
 
   void move() {
-    r= atan2(mouseY-y, mouseX-x);
+    r= atan2(mouseY-loc.y, mouseX-loc.x);
     float targetX = mouseX;
-    dx = targetX - x;
-    if (abs(dx) > 1) {
-      x += dx * easing;
-    }
     float targetY = mouseY;
-    float dy = targetY - y;
-    if (abs(dy) > 1) {
-      y += dy * easing;
+    dx = targetX - loc.x;
+    dy = targetY - loc.y;
+    vel.set(dx*easing, dy*easing);
+    if (abs(dx) > 1) {
+      loc.x += dx * easing;
     }
-    x+= dx*easing;
-    y+= dy*easing;
+    if (abs(dy) > 1) {
+      loc.y += dy * easing;
+    }
+    loc.x+= vel.x;
+    loc.y+= vel.y;
     if (wall.l2 == wall.wall) {
-      x+=10;
+      loc.x+=10;
     }
     if (wall.r2 == wall.wall) {
-      x-=10;
+      loc.x-=10;
     }
     if (wall.t2 == wall.wall) {
-      y+=10;
+      loc.y+=10;
     }
     if (wall.b2 == wall.wall) {
-      y-=10;
+      loc.y-=10;
     }
   }
 }
