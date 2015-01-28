@@ -21,7 +21,6 @@ class ControlScreen {
 
 
   ControlScreen() {
-    stroke(255);
     rectMode(CENTER);
     textAlign(CENTER);
     Arrows = loadImage("Arrowkeys.png");
