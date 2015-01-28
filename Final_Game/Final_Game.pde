@@ -5,6 +5,7 @@ Wall wall;
 //move owen;
 ArrayList<Bullet> bull;
 int shootTime=20;
+
 void setup() {
   wall=new Wall();
   size(800, 800);
@@ -14,22 +15,38 @@ void setup() {
   bull=new ArrayList<Bullet>();
   //  owen = new move();
 }
+
 void draw() {
   //  owen.update();
   wall.display();
+  for (int i=0; i<bull.size (); i++) {
+    Bullet b=bull.get(i);
+    b.display(); 
+    b.move();
+    wall.ball(b);
+    println(b.vel);
+    if (wall.l3 == wall.wall) {
+      b.vel.x*=-1;
+    }
+    if (wall.r3 == wall.wall) {
+      //      bull.remove(b);
+      b.vel.x*=-1;
+    }
+    if (wall.t3 == wall.wall) {
+      //      bull.remove(b);
+      b.vel.y*=-1;
+    }
+    if (wall.b3 == wall.wall) {
+      //      bull.remove(b);
+      b.vel.y*=-1;
+    }
+    
+  }
   ufo.display();
   ufo.move();
   UFO.display();
   UFO.move();
   // first ufo Hitting wall
-  for (int i=0; i<bull.size (); i++) {
-
-    Bullet b=bull.get(i);
-    b.display(); 
-    b.move(b);
-    wall.ball(b);
-    println(b.vel);
-  }
 }
 
 void keyPressed() {
