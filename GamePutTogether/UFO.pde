@@ -6,7 +6,7 @@ class UFO {
   PVector el;
 
   UFO() {
-    SpaceShip= loadImage("BlueSpaceShip.png");
+    SpaceShip= loadImage("Blue Spaceshipp.png");
     loc=new PVector(width/2, height/2);
     vel= new PVector(0, 0);
     el= new PVector(-.3, 5);
