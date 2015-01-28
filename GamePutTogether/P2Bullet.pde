@@ -1,20 +1,20 @@
-class Bullet {
+class P2Bullet {
   PVector vel;
   PVector loc;
   int sz;
   int totaltime;
-  boolean bwin;
+  boolean gwin;
 
-  Bullet(UFO other) {
+  P2Bullet(P2UFO other) {
     loc=new PVector(other.loc.x, other.loc.y);
     vel=new PVector(other.vel.x, other.vel.y);
-    vel.mult(5);
+    vel.mult(3);
     sz = 10;
-    bwin=false;
+    gwin=false;
   }
 
   void display() {
-    fill(0, 0, 200);
+    fill(0, 122, 0);
     ellipse(loc.x, loc.y, sz, sz);
   }
 
@@ -23,15 +23,15 @@ class Bullet {
     loc.add(vel);
   }
 
-  void kill(P2UFO other) {
+  void kill(UFO other) {
     if (loc.dist(other.loc)<sz/2+other.sz/2) {
-      bwin=true;
+      gwin=true;
     }
   }
-
-  void life(Bullet b) {
+  void life(P2Bullet b) {
     if (b.totaltime>=400) {
-      bull.remove(b);
+      p2bull.remove(b);
     }
   }
 }
+

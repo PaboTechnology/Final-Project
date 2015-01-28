@@ -16,6 +16,7 @@ class StartScreen {
       velocity[s] = new PVector(0, random(0));
     }
   }
+  
   void move() {
     //makes stars fall
     for (int s = 0; s<count; s++) {

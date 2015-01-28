@@ -21,8 +21,6 @@ class ControlScreen {
 
 
   ControlScreen() {
-    rectMode(CENTER);
-    textAlign(CENTER);
     Arrows = loadImage("Arrowkeys.png");
     ArrowDOWN = loadImage("ArrowkeysDOWN.png");
     ArrowUP = loadImage("ArrowkeysUP.png");
@@ -47,67 +45,68 @@ class ControlScreen {
   void display() {
     //If button is true(pressed)...
     if (button) {
-      //make button go away by setting new location off screen
-      bx=width*2;
-      by=height*2;
+      if (button2==false) {
+        //make button go away by setting new location off screen
+        bx=width*2;
+        by=height*2;
 
-      //load arrow key image
-      image(Arrows, width/8, height/3, ArrowSZ, ArrowSZ);
+        //load arrow key image
+        image(Arrows, width/8, height/3, ArrowSZ, ArrowSZ);
 
-      //if down key is pressed, down arrow turns and stays green
-      if (keyCode == DOWN) {
-        image(ArrowDOWN, width/8, height/3, ArrowSZ, ArrowSZ);
-      }
+        //if down key is pressed, down arrow turns and stays green
+        if (keyCode == DOWN) {
+          image(ArrowDOWN, width/8, height/3, ArrowSZ, ArrowSZ);
+        }
 
-      //if up key is pressed, up arrow turns and stays green
-      if (keyCode == UP) {
-        image(ArrowUP, width/8, height/3, ArrowSZ, ArrowSZ);
-      }
+        //if up key is pressed, up arrow turns and stays green
+        if (keyCode == UP) {
+          image(ArrowUP, width/8, height/3, ArrowSZ, ArrowSZ);
+        }
 
-      //if left key is pressed, left arrow turns and stays green
-      if (keyCode == LEFT) {
-        image(ArrowLEFT, width/8, height/3, ArrowSZ, ArrowSZ);
-      }
+        //if left key is pressed, left arrow turns and stays green
+        if (keyCode == LEFT) {
+          image(ArrowLEFT, width/8, height/3, ArrowSZ, ArrowSZ);
+        }
 
-      //if down key is pressed, down arrow turns and stays green
-      if (keyCode == RIGHT) {
-        image(ArrowRIGHT, width/8, height/3, ArrowSZ, ArrowSZ);
-      }
+        //if down key is pressed, down arrow turns and stays green
+        if (keyCode == RIGHT) {
+          image(ArrowRIGHT, width/8, height/3, ArrowSZ, ArrowSZ);
+        }
 
-      //load image of mouse
-      image(Mouse, width/10*7, height/3, MouseSZx, MouseSZy);
+        //load image of mouse
+        image(Mouse, width/10*7, height/3, MouseSZx, MouseSZy);
 
-      //if left-click/right-click is pressed, mouse keys turn green
-      if (mousePressed == true) {
-        image(MouseGREEN, width/10*7, height/3, MouseSZx, MouseSZy);
-      }
+        //if left-click/right-click is pressed, mouse keys turn green
+        if (mousePressed == true) {
+          image(MouseGREEN, width/10*7, height/3, MouseSZx, MouseSZy);
+        }
 
-      //load m key
-      image(MKey, width/4, height/5*2, MkeySZ, MkeySZ);
+        //load m key
+        image(MKey, width/4, height/5*2, MkeySZ, MkeySZ);
 
-      //if m or M is pressed, m key turns green
-      if (key == 'm' || key =='M') {
-        image(MKeyGREEN, width/4, height/5*2, MkeySZ, MkeySZ);
-      }
+        //if m or M is pressed, m key turns green
+        if (key == 'm' || key =='M') {
+          image(MKeyGREEN, width/4, height/5*2, MkeySZ, MkeySZ);
+        }
 
-      //Player 1 controls text
-      fill(128);
-      rect(width/4, height/4, 400, 100);
-      fill(192);
-      rect(width/4, height/4, 380, 80);
-      fill(0);
-      textSize(40);
-      text("Player 1 Controls", width/4, height/4);
+        //Player 1 controls text
+        fill(128);
+        rect(width/4, height/4, 400, 100);
+        fill(192);
+        rect(width/4, height/4, 380, 80);
+        fill(0);
+        textSize(40);
+        text("Player 1 Controls", width/4, height/4);
 
-      //Player 2 controls text
-      fill(128);
-      rect(width/4*3, height/4, 400, 100);
-      fill(192);
-      rect(width/4*3, height/4, 380, 80);
-      fill(0);
-      textSize(40);
-      text("Player 2 Controls", width/4*3, height/4);
-      if (button2) {
+        //Player 2 controls text
+        fill(128);
+        rect(width/4*3, height/4, 400, 100);
+        fill(192);
+        rect(width/4*3, height/4, 380, 80);
+        fill(0);
+        textSize(40);
+        text("Player 2 Controls", width/4*3, height/4);
+
         b2x=width*2;
         b2y=height*2;
         fill(128);
@@ -118,8 +117,6 @@ class ControlScreen {
         textAlign(CENTER);
         textSize(70);
         text("Ready?", width/2, 675);
-      } else {
-        background(255);
       }
     } else {
       //button, click to start background
