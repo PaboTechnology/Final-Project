@@ -10,7 +10,7 @@ class P2UFO {
   int sz;
   P2UFO() {
     loc=new PVector(width/3, 60);
-    SpaceShip= loadImage("GreenSpaceShip.png");
+    SpaceShip= loadImage("Green Spaceshipp.png");
     easing=.005;
     pab=new PVector(-.3, 5);
     vel=new PVector(dx*easing, dy*easing);

@@ -4,14 +4,12 @@ class UFO {
   PVector vel;
   float theta;
   PVector el;
-  int sz;
 
   UFO() {
-    SpaceShip= loadImage("Blue Spaceshipp.png");
+    SpaceShip= loadImage("BlueSpaceShip.png");
     loc=new PVector(width/2, height/2);
     vel= new PVector(0, 0);
     el= new PVector(-.3, 5);
-    sz = 50;
   }
 
   void display() {
@@ -24,11 +22,12 @@ class UFO {
     pushMatrix();
     translate(loc.x, loc.y);
     fill(0);
-    ellipse(el.x, el.y, sz, sz);
+    ellipse(el.x, el.y, 50, 50);
     rotate(theta);
     image(SpaceShip, 0, 0);
-    SpaceShip.resize(sz, 57);
+    SpaceShip.resize(50, 57);
     popMatrix();
+    //    println(theta);
     if (wall.l == wall.wall) {
       loc.x+=5;
     }
@@ -52,7 +51,11 @@ class UFO {
       }
     }
     if (keyPressed) {
-      if (keyCode==DOWN) {
+      if (keyCode==UP) {
+        for (int i=0; i<3; i++) {
+          loc.add(vel);
+        }
+      } else if (keyCode==DOWN) {
         for (int i=0; i<3; i++) {
           loc.sub(vel);
         }
