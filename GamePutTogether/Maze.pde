@@ -32,7 +32,6 @@ class Wall {
     image(map, 0, 0);
     wall = (-1);
     m=map.get(int(mouseX), int(mouseY));
-    println(m);
 //    get colors of points of p1ufo, p2ufo
     l= map.get(int(ufo.loc.x-25), int(ufo.loc.y));
     r= map.get(int(ufo.loc.x+25), int(ufo.loc.y));
